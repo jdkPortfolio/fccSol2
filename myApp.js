@@ -11,8 +11,9 @@ app.get("/", (req, res) => {
     res.sendFile(absPath+'/views/index.html');
 })
 
-
-
+app.get("/json", (req, res) => {
+    res.json({"message":"Hello json"});
+})
 
 
 
