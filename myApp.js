@@ -8,6 +8,10 @@ absPath = __dirname
 
 app.use("/public", express.static(absPath+'/public'))
 
+app.use((req, res, next) => {
+    console.log(req.method+" "+req.path+" - "+req.ip);
+    next();
+})
 app.get("/", (req, res) => {
     res.sendFile(absPath+'/views/index.html');
 })
@@ -20,6 +24,7 @@ app.get("/json", (req, res) => {
     }
     
 })
+
 
 
 
